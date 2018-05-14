@@ -1,7 +1,7 @@
 'use strict'
 
 require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })
-const io = require('socket.io')(4000)
+const io = require('socket.io')(process.env.PORT || 4000)
 
 const controller = require('./lib/controller')
 const webSocketEvents = require('./lib/webSocketEvents')
