@@ -21,7 +21,7 @@
     "webchatbot"
   ],
   "author": "laudeon",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/laudeon/protobot/issues"
   },
