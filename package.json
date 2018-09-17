@@ -4,7 +4,7 @@
   "description": "a proto of a bot using botkit and rasa nlu. ",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch ./test",
     "start": "NODE_ENV=production && node index",
     "dev": "NODE_ENV=development && DEBUG='protobot:*' && nodemon"
   },
