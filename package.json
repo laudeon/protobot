@@ -5,17 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "export NODE_ENV=development && node index",
-    "dev": "export DEBUG='protobot:*' && nodemon"
+    "start": "NODE_ENV=production && node index",
+    "dev": "NODE_ENV=development && DEBUG='protobot:*' && nodemon"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/laudeon/protobot.git"
   },
   "keywords": [
-    "bot",
-    "rasa",
-    "nlu",
+    "recastai",
     "botkit",
     "chatbot",
     "webchatbot"
@@ -28,14 +26,17 @@
   "homepage": "https://github.com/laudeon/protobot#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "botkit": "^0.6.14",
+    "botkit": "^0.6.16",
     "botkit-middleware-recastai": "^1.0.6",
-    "debug": "^3.1.0",
-    "dotenv": "^5.0",
-    "recastai": "^3.7.0",
+    "debug": "^4.0.1",
+    "dotenv": "^6.0",
+    "recastai": "^4.0.0",
     "socket.io": "^2.1.1"
   },
   "devDependencies": {
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.18.4"
+  },
+  "nodemonConfig": {
+    "ignore": ["node_modules/*", ".git/*"]
   }
 }
