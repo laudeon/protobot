@@ -34,9 +34,13 @@
     "socket.io": "^2.1.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "jest": "^23.6.0"
   },
   "nodemonConfig": {
-    "ignore": ["node_modules/*", ".git/*"]
+    "ignore": [
+      "node_modules/*",
+      ".git/*"
+    ]
   }
 }
