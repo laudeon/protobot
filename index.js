@@ -1,15 +1,20 @@
-// @see the botkit documentation for more infos regarding the controller and bot API
+// @see the botkit documentation for more infos regarding the controller, the bot API and botkit in general
 
 'use strict'
 
 require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })
 const io = require('socket.io')(process.env.PORT || 4000)
 
-const controller = require('./lib/controller')
-const websocket = require('./lib/websocket')
-const chatbot = require('./lib/chatbot')
+const botFactory = require('./lib/botFactory')
+const websocketListeners = require('./lib/websocketListeners')
+const botListeners = require('./lib/botListeners')
 const recastaiMiddleware = require('./lib/middlewares/recastai')
 
-controller.startTicking() // Start controller
-io.on('connection', websocket.vroum(controller)) // start listening for incominn message event and delegate message to controller
-chatbot.vroum(controller, recastaiMiddleware) // Init chatbot logic
+// Start bot brain
+botFactory.startTicking()
+
+// start listening for incoming websocket events and delegate messages to the botListener
+io.on('connection', websocketListeners.vroum(botFactory))
+
+// Init chatbot logic
+botListeners.vroum(botFactory, recastaiMiddleware)
